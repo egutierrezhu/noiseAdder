@@ -26,7 +26,7 @@ for i=3:N(1)
     % noise generation
     a = 5; b = 35;                  % SNR, dB. Generate values from the uniform distribution  
     SNR = a + (b-a).*rand(1,1);     % on the interval (a, b)
-    Ps = 10*log10(std(s).^2);       % signal power, dBV^2
+    Ps = 10*log10(std(s)^2+mean(s)^2);       % signal power, dBV^2
     Pn = Ps - SNR;                  % noise power, dBV^2
     Pn = 10^(Pn/10);                % noise power, V^2
     sigma = sqrt(Pn);               % noise RMS, V
